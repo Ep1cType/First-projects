@@ -8,7 +8,9 @@ const Profile = (props) => {
             <div className={s.narrow}>
                 <div className={s.avatar}>
                     <div>
-                        <img src="https://image.freepik.com/free-vector/man-avatar-profile-on-round-icon_24640-14044.jpg" alt="" />
+                        <img
+                            src="https://image.freepik.com/free-vector/man-avatar-profile-on-round-icon_24640-14044.jpg"
+                            alt=""/>
                     </div>
                 </div>
             </div>
@@ -60,12 +62,12 @@ const Profile = (props) => {
                         </div>
                     </div>
                 </div>
-                <MyPosts /> 
-                <Post message="How are you" />
-                <Post message="I'm Fine, How are you ?" />
-                <Post message="You are debil" />
+                <MyPosts/>
+                <Post message="How are you"/>
+                <Post message="I'm Fine, How are you ?"/>
+                <Post message="You are debil"/>
+                <Post message="Diman "/>
             </div>
-
         </div>
     );
 }

@@ -18,10 +18,10 @@ const Navbar = (props) => {
                     </NavLink>
                 </li>
                 <li className={s.item}>
-                    <a href="" className={s.link}>
+                    <NavLink to="/news" activeClassName={s.active} className={s.link}>
                         <div className={s.news__icon}></div>
                         <span>News</span>
-                    </a>
+                    </NavLink>
                 </li>
                 <li className={s.item}>
                     <a href="" className={s.link}>

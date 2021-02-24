@@ -3,7 +3,7 @@
     flex-direction: row;
     width: 795px;
     justify-content: space-between;
-    padding-top: 15px;
+    margin-top: 15px;
 }
 
 .narrow {
