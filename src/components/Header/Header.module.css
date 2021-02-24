@@ -1,0 +1,17 @@
+.header {
+    height: 48px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dce1e6;
+    display: flex;
+}
+
+.wrapper {
+    width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 30px;
+}

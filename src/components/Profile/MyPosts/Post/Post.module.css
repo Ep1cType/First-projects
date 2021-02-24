@@ -1,0 +1,13 @@
+.post {
+    margin: 10px 0;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 0 #d3d9de,0 0 0 1px #e7e8ec;
+}
+
+
+
+.text {}
