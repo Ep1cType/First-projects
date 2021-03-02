@@ -1,10 +1,10 @@
-import s from './MyPosts.module.css';
-import Post from "./Post/Post";
-import Dialog from "../../Chat/Dialogs/Dialog/Dialog";
+import s from "./Dialogs.module.css";
+import Dialog from "./Dialog/Dialog.jsx";
 
-const MyPosts = (props) => {
 
-    let postsData = [
+const Dialogs = (props) => {
+
+    let dialogData = [
         {
             id: 1,
             name: 'Denis Chernykh',
@@ -42,31 +42,25 @@ const MyPosts = (props) => {
         },
     ]
 
-    let postElements = postsData.map(p =>
-        <Post message={p.message}
-              imgUrl={p.imgUrl}/>
+    let dialogElements = dialogData.map(d =>
+        <Dialog id={d.id}
+                name={d.name}
+                message={d.message}
+                time={d.time}
+                imgUrl={d.imgUrl}/>
     );
 
+
+
     return (
-        <div className={s.posts}>
-            <div className={s.posts__form}>
-                <form action="#" method="POST" />
-                My posts:
-                <textarea>
-
-                </textarea>
-                <div className={s.btn__wrapper}>
-                    <div className={s.btn__block}>
-                        <button className={s.btn}>Send</button>
-                    </div>
-                </div>
+        <div className={s.dialogs}>
+            <div className={s.dialogs__wrapper}>
+                <ul className={s.dialogs__row}>
+                    {dialogElements}
+                </ul>
             </div>
-            <div className="posts__item">
-                {postElements}
-            </div>
-
         </div>
     );
 }
-    
-export default MyPosts;
+
+export default Dialogs;

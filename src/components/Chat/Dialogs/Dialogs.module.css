@@ -1,0 +1,11 @@
+.dialogs {
+    background-color: #ffffff;
+    width: 300px;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 0 #d3d9de, 0 0 0 1px #e7e8ec;
+    overflow-y: scroll;
+}
+
+.dialogs__row {
+    padding: 10px;
+}
