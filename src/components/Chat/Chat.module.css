@@ -1,6 +1,6 @@
 
 ::-webkit-scrollbar-button {
-    background-image: url('');
+
     background-repeat: no-repeat;
     width: 5px;
     height: 0px;
@@ -21,7 +21,7 @@
 }
 
 ::-webkit-resizer {
-    background-image: url('');
+
     background-repeat: no-repeat;
     width: 4px;
     height: 0px;

@@ -13,25 +13,31 @@ import {
     withRouter,
     BrowserRouter,
 } from "react-router-dom"
+import Friends from "./components/Friends/Friends";
+import {addPost} from "./redux/state";
 
 
-function App() {
+function App(props) {
     return (
-        <BrowserRouter>
-            <div className='app-wrapper'>
-                <Header/>
-                <div className="page__layout">
-                    <div className="container">
-                        <div className="page__window">
-                            <Navbar/>
-                            <Route path='/profile' component={Profile}/>
-                            <Route path='/dialogs' component={Chat}/>
-                            <Route path='/news' component={News}/>
-                        </div>
+        <div className='app-wrapper'>
+            <Header/>
+            <div className="page__layout">
+                <div className="container">
+                    <div className="page__window">
+                        <Navbar/>
+                        <Route path='/profile'
+                               render={() => <Profile profilePage={props.state.profilePage}
+                                                      addPost={props.addPost}
+                                                      updateNewPostText={props.updateNewPostText}/>}/>
+                        <Route path='/chat' render={() => <Chat chatPage={props.state.chatPage}
+                                                                addMessage={props.addMessage}
+                                                                updateNewMessageText={props.updateNewMessageText}/>}/>
+                        <Route path='/friends' render={() => <Friends state={props.state.friendsPage}/>}/>
+                        <Route path='/news' render={() => <News/>}/>
                     </div>
                 </div>
             </div>
-        </BrowserRouter>
+        </div>
     );
 }
 

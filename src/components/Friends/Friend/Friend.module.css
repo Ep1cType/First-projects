@@ -1,0 +1,31 @@
+.item {
+    padding: 12px 0;
+    height: 105px;
+    border-bottom: 1px solid #e7e8ec;
+    display: flex;
+}
+
+.img__url {
+    display: block;
+}
+
+.item img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    margin: 0 15px 0 0;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+}
+
+.text h3 {
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 0;
+    font-size: 12px;
+    margin-bottom: 9px;
+}

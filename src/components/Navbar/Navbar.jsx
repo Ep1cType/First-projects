@@ -12,22 +12,22 @@ const Navbar = (props) => {
                     </NavLink>
                 </li>
                 <li className={s.item}>
-                    <NavLink to="/dialogs" activeClassName={s.active} className={s.link}>
+                    <NavLink to="/chat" activeClassName={s.active} className={s.link}>
                         <div className={s.messages__icon}></div>
-                        <span>Messages</span>
+                        <span>Chat</span>
+                    </NavLink>
+                </li>
+                <li className={s.item}>
+                    <NavLink to="/friends" activeClassName={s.active} className={s.link}>
+                        <div className={s.news__icon}></div>
+                        <span>Friends</span>
                     </NavLink>
                 </li>
                 <li className={s.item}>
                     <NavLink to="/news" activeClassName={s.active} className={s.link}>
-                        <div className={s.news__icon}></div>
+                        <div className={s.music__icon}></div>
                         <span>News</span>
                     </NavLink>
-                </li>
-                <li className={s.item}>
-                    <a href="" className={s.link}>
-                        <div className={s.music__icon}></div>
-                        <span>Music</span>
-                    </a>
                 </li>
                 <li className={s.item}>
                     <a href="" className={s.link}>
