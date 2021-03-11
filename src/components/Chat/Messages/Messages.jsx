@@ -32,6 +32,7 @@ const Messages = (props) => {
                 <textarea className={s.messagefield}
                           ref={newMessageElement}
                           onChange={onMessageChange}
+                          placeholder="Write message"
                           value={props.newMessageText}/>
                 <div className={s.btn__wrapper}>
                     <div className={s.btn__block}>

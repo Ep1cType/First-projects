@@ -28,6 +28,7 @@ const MyPosts = (props) => {
                 <textarea className={s.postfield}
                           ref={newPostElement}
                           onChange={onPostChange}
+                          placeholder="Write post"
                           value={props.newPostText}/>
                 <div className={s.btn__wrapper}>
                     <div className={s.btn__block}>
