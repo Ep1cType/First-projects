@@ -27,11 +27,9 @@ function App(props) {
                         <Navbar/>
                         <Route path='/profile'
                                render={() => <Profile profilePage={props.state.profilePage}
-                                                      addPost={props.addPost}
-                                                      updateNewPostText={props.updateNewPostText}/>}/>
+                                                      dispatch={props.dispatch}/>}/>
                         <Route path='/chat' render={() => <Chat chatPage={props.state.chatPage}
-                                                                addMessage={props.addMessage}
-                                                                updateNewMessageText={props.updateNewMessageText}/>}/>
+                                                                dispatch={props.dispatch}/>}/>
                         <Route path='/friends' render={() => <Friends state={props.state.friendsPage}/>}/>
                         <Route path='/news' render={() => <News/>}/>
                     </div>

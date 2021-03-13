@@ -9,8 +9,7 @@ const Chat = (props) => {
             <Dialogs dialogs={props.chatPage.dialogs}
                      lastMessage={props.chatPage.messages}/>
             <Messages messages={props.chatPage.messages}
-                      addMessage={props.addMessage}
-                      updateNewMessageText={props.updateNewMessageText}
+                      dispatch={props.dispatch}
                       newMessageText={props.chatPage.newMessageText}/>
         </div>
     );
