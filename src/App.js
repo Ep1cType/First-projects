@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Chat from "./components/Chat/chat";
 import News from "./components/News/News";
-
+import Friends from "./components/Friends/Friends";
 
 import {
     Route,
@@ -13,8 +13,7 @@ import {
     withRouter,
     BrowserRouter,
 } from "react-router-dom"
-import Friends from "./components/Friends/Friends";
-import {addPost} from "./redux/state";
+
 
 
 function App(props) {
