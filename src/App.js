@@ -25,9 +25,9 @@ function App(props) {
                     <div className="page__window">
                         <Navbar/>
                         <Route path='/profile'
-                               render={() => <Profile profilePage={props.state.profilePage}
-                                                      dispatch={props.dispatch}/>}/>
+                               render={() => <Profile store={props.store}/>}/>
                         <Route path='/chat' render={() => <Chat chatPage={props.state.chatPage}
+                                                                store={props.store}
                                                                 dispatch={props.dispatch}/>}/>
                         <Route path='/friends' render={() => <Friends state={props.state.friendsPage}/>}/>
                         <Route path='/news' render={() => <News/>}/>

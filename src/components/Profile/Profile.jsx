@@ -1,7 +1,6 @@
 import s from './Profile.module.css';
-import MyPosts from './MyPosts/MyPosts.jsx';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import {addPost} from "../../redux/state";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
 const Avatar = (props) => {
@@ -25,9 +24,7 @@ const Profile = (props) => {
             </div>
             <div className={s.right}>
                 <ProfileInfo/>
-                <MyPosts posts={props.profilePage.posts}
-                         dispatch={props.dispatch}
-                         newPostText={props.profilePage.newPostText} />
+                <MyPostsContainer store={props.store} />
             </div>
         </div>
     );

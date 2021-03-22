@@ -1,7 +1,6 @@
 import s from "./Messages.module.css";
 import Message from "./Message/Message.jsx";
 import * as React from "react";
-import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../../redux/state";
 
 const Messages = (props) => {
 
@@ -15,19 +14,19 @@ const Messages = (props) => {
     let newMessageElement = React.createRef();
 
     let addMessage = () => {
-        props.dispatch(addMessageActionCreator());
+        props.addMessage();
     }
 
     let onMessageChange = (e) => {
         let text = e.target.value;
-        props.dispatch(updateNewMessageTextActionCreator(text));
+        props.updateNewMessageText(text);
     }
 
     return (
         <div className={s.messages}>
             <div className="messages__wrapper">
                 <ul className={s.messages__row}>
-                    { messageElements }
+                    {messageElements}
                 </ul>
                 <form action="#" method="POST" />
                 <textarea className={s.messagefield}
