@@ -42,6 +42,6 @@ const MyPosts = (props) => {
 
         </div>
     );
-}
+};
     
 export default MyPosts;

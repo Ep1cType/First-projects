@@ -31,7 +31,7 @@ const Messages = (props) => {
                 <form action="#" method="POST" />
                 <textarea className={s.messagefield}
                           ref={newMessageElement}
-                          onChange={onMessageChange}
+                          onChange={ onMessageChange }
                           placeholder="Write message"
                           value={props.newMessageText}/>
                 <div className={s.btn__wrapper}>

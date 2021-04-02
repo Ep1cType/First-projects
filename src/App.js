@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Chat from "./components/Chat/chat";
 import News from "./components/News/News";
-import Friends from "./components/Friends/Friends";
+import FriendsContainer from "./components/Friends/FriendsContainer";
 
 import {
     Route,
@@ -13,6 +13,7 @@ import {
     withRouter,
     BrowserRouter,
 } from "react-router-dom"
+
 
 
 
@@ -25,12 +26,13 @@ function App(props) {
                     <div className="page__window">
                         <Navbar/>
                         <Route path='/profile'
-                               render={() => <Profile store={props.store}/>}/>
-                        <Route path='/chat' render={() => <Chat chatPage={props.state.chatPage}
-                                                                store={props.store}
-                                                                dispatch={props.dispatch}/>}/>
-                        <Route path='/friends' render={() => <Friends state={props.state.friendsPage}/>}/>
-                        <Route path='/news' render={() => <News/>}/>
+                               render={() => <Profile/>}/>
+                        <Route path='/chat'
+                               render={() => <Chat/>}/>
+                        <Route path='/friends'
+                               render={() => <FriendsContainer/>}/>
+                        <Route path='/news'
+                               render={() => <News/>}/>
                     </div>
                 </div>
             </div>

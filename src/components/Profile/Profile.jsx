@@ -6,7 +6,7 @@ import MyPostsContainer from "./MyPosts/MyPostsContainer";
 const Avatar = (props) => {
     return (
         <img
-            src={props.avatarUrl}
+            src={props.userAvatar}
             alt=""/>
     );
 }
@@ -18,13 +18,13 @@ const Profile = (props) => {
                 <div className={s.avatar}>
                     <div>
                         <Avatar
-                            avatarUrl="https://sun9-5.userapi.com/c855428/v855428486/1e0c0e/s0jovjqBdEc.jpg"/>
+                            userAvatar="https://sun9-5.userapi.com/c855428/v855428486/1e0c0e/s0jovjqBdEc.jpg"/>
                     </div>
                 </div>
             </div>
             <div className={s.right}>
                 <ProfileInfo/>
-                <MyPostsContainer store={props.store} />
+                <MyPostsContainer/>
             </div>
         </div>
     );
