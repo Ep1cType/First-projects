@@ -39,23 +39,33 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
 
+    let stateCopy;
+
     switch (action.type) {
+
         case ADD_POST: {
             let newPost = {
                 id: 6,
                 message: state.newPostText,
                 imgUrl: 'https://sun9-5.userapi.com/c855428/v855428486/1e0c0e/s0jovjqBdEc.jpg',
             };
-            let stateCopy = {...state};
-            stateCopy.posts = [...state.posts];
-            stateCopy.posts.push(newPost);
-            stateCopy.newPostText = "";
+            let stateCopy = {
+                ...state,
+                newPostText: '',
+                posts: [...state.posts, newPost],
+            };
+            // stateCopy.posts = [...state.posts];
+            // stateCopy.posts.push(newPost);
+            // stateCopy.newPostText = "";
             return stateCopy;
         }
 
         case UPDATE_NEW_POST_TEXT: {
-            let stateCopy = {...state};
-            stateCopy.newPostText = action.newText;
+            let stateCopy = {
+                ...state,
+                newPostText: action.newText,
+            };
+            // stateCopy.newPostText = action.newText;
             return stateCopy;
         }
 

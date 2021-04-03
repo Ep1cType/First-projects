@@ -66,6 +66,8 @@ let initialState = {
 
 export const chatReducer = (state = initialState, action) => {
 
+    let stateCopy;
+
     switch (action.type) {
         case ADD_MESSAGE: {
             let newMessage = {
@@ -73,16 +75,20 @@ export const chatReducer = (state = initialState, action) => {
                 imgUrl: 'https://sun9-5.userapi.com/c855428/v855428486/1e0c0e/s0jovjqBdEc.jpg',
                 message: state.newMessageText,
             };
-            let stateCopy = {...state};
-            stateCopy.messages = [...state.messages];
-            stateCopy.messages.push(newMessage);
-            stateCopy.newMessageText = "";
+            let stateCopy = {
+                ...state,
+                messages: [...state.messages, newMessage],
+                newMessageText: '',
+
+            };
             return stateCopy;
         }
 
         case UPDATE_NEW_MESSAGE_TEXT: {
-            let stateCopy = {...state};
-            stateCopy.newMessageText = action.newText;
+            stateCopy = {
+                ...state,
+                newMessageText: action.newText,
+            }
             return stateCopy;
         }
         default:
