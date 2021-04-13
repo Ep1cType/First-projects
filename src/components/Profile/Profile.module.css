@@ -20,6 +20,7 @@
 
 .avatar img {
     width: 200px;
+    border-radius: 2px;
     aspect-ratio: auto 200 / 200;
     height: 200px;
 }

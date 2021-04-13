@@ -4,11 +4,13 @@ import * as React from "react";
 
 const Messages = (props) => {
 
+
+
     let messageElements = props.messages.map(m =>
-        <Message
-            firstname={m.firstname}
-            imgUrl={m.imgUrl}
-            message={m.message}/>
+        <Message key={m.id}
+                 firstname={m.firstname}
+                 imgUrl={m.imgUrl}
+                 message={m.message}/>
     );
 
     let newMessageElement = React.createRef();
@@ -36,7 +38,9 @@ const Messages = (props) => {
                           value={props.newMessageText}/>
                 <div className={s.btn__wrapper}>
                     <div className={s.btn__block}>
-                        <button className={s.btn} onClick={addMessage}>Send</button>
+                        <button className={s.btn} onClick={addMessage}>
+                            <img src={require("../../../icons/sendbtn.svg").default} />
+                        </button>
                     </div>
                 </div>
             </div>

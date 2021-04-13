@@ -11,6 +11,16 @@
     padding: 0 0 15px;
 }
 
+.page_name {
+    font-size: 19px;
+    line-height: 25px;
+    font-weight: 400;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .desc {
     padding-top: 10px;
 }

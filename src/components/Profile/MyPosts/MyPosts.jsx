@@ -5,7 +5,8 @@ import * as React from "react";
 const MyPosts = (props) => {
 
     let postElements = props.posts.map(p =>
-        <Post message={p.message}
+        <Post key={p.id}
+              message={p.message}
               imgUrl={p.imgUrl}/>
     );
 

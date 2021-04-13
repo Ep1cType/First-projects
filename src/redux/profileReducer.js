@@ -39,8 +39,6 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
 
-    let stateCopy;
-
     switch (action.type) {
 
         case ADD_POST: {
@@ -49,24 +47,18 @@ const profileReducer = (state = initialState, action) => {
                 message: state.newPostText,
                 imgUrl: 'https://sun9-5.userapi.com/c855428/v855428486/1e0c0e/s0jovjqBdEc.jpg',
             };
-            let stateCopy = {
+            return  {
                 ...state,
                 newPostText: '',
                 posts: [...state.posts, newPost],
             };
-            // stateCopy.posts = [...state.posts];
-            // stateCopy.posts.push(newPost);
-            // stateCopy.newPostText = "";
-            return stateCopy;
         }
 
         case UPDATE_NEW_POST_TEXT: {
-            let stateCopy = {
+            return  {
                 ...state,
                 newPostText: action.newText,
             };
-            // stateCopy.newPostText = action.newText;
-            return stateCopy;
         }
 
         default:

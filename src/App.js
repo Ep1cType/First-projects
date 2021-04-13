@@ -5,6 +5,7 @@ import Profile from './components/Profile/Profile';
 import Chat from "./components/Chat/chat";
 import News from "./components/News/News";
 import FriendsContainer from "./components/Friends/FriendsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 import {
     Route,
@@ -13,6 +14,7 @@ import {
     withRouter,
     BrowserRouter,
 } from "react-router-dom"
+
 
 
 
@@ -33,6 +35,8 @@ function App(props) {
                                render={() => <FriendsContainer/>}/>
                         <Route path='/news'
                                render={() => <News/>}/>
+                        <Route path='/users'
+                               render={() => <UsersContainer/>}/>
                     </div>
                 </div>
             </div>

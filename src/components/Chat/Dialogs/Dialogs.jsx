@@ -1,3 +1,4 @@
+import * as React from "react";
 import s from "./Dialogs.module.css";
 import Dialog from "./Dialog/Dialog.jsx";
 
@@ -5,10 +6,13 @@ import Dialog from "./Dialog/Dialog.jsx";
 const Dialogs = (props) => {
 
     let dialogElements = props.dialogs.map(d =>
-        <Dialog id={d.id}
+        <Dialog key={d.id}
+                id={d.id}
                 name={d.name}
                 message={d.message}
                 time={d.time}
+                read={d.read}
+                readit={props.readit}
                 imgUrl={d.imgUrl}/>
     );
 

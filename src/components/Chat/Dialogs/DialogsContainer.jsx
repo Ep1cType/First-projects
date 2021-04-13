@@ -1,5 +1,6 @@
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
+import {readActionCreator} from "../../../redux/chatReducer";
 
 
 let mapStateToProps = (state) => {
@@ -8,13 +9,15 @@ let mapStateToProps = (state) => {
     });
 };
 
-// let mapDispatchToProps = () => {
-//     return ({
-//
-//     });
-// };
+let mapDispatchToProps = (dispatch) => {
+    return ({
+        readit: (dialogID) => {
+            dispatch(readActionCreator(dialogID));
+        }
+    });
+};
 
 
-const DialogsContainer = connect(mapStateToProps)(Dialogs)
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 
 export default DialogsContainer;

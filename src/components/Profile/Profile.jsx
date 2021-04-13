@@ -18,7 +18,7 @@ const Profile = (props) => {
                 <div className={s.avatar}>
                     <div>
                         <Avatar
-                            userAvatar="https://sun9-5.userapi.com/c855428/v855428486/1e0c0e/s0jovjqBdEc.jpg"/>
+                            userAvatar="https://avatarfiles.alphacoders.com/277/277372.jpg"/>
                     </div>
                 </div>
             </div>

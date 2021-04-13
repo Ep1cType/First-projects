@@ -4,7 +4,7 @@ const ProfileInfo = (props) => {
     return (
         <div className={s.info}>
             <div className={s.name}>
-                <h1>Denis Chernykh</h1>
+                <h1 className={s.page_name}>Denis Chernykh</h1>
             </div>
             <div className={s.desc}>
                 <div className={s.row}>

@@ -5,7 +5,7 @@ let initialState = {
             name: 'Denis Chernykh',
             message: 'lorem fadf sdf sda fsadg sgd ags gsa g',
             time: '10hr',
-            imgUrl: 'https://sun9-5.userapi.com/c855428/v855428486/1e0c0e/s0jovjqBdEc.jpg'
+            imgUrl: 'https://avatarfiles.alphacoders.com/277/277372.jpg'
         },
         {
             id: 2,

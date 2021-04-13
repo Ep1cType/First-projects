@@ -1,12 +1,14 @@
 import s from "./Dialog.module.css";
 import {NavLink} from "react-router-dom";
+import * as React from "react";
 
 const Dialog = (props) => {
     return (
-        <li className={s.dialogs__item}>
-            <NavLink className={s.dialogs__item} to={"/chat/" + props.id}>
-                <div className={s.indicator}>
-                </div>
+        <li >
+            <NavLink onClick={() => { props.readit(props.id) }} className={s.dialogs__item} to={"/chat/" + props.id} >
+                    {props.read
+                        ? <div className={s.indicator}/>
+                        : null}
                 <img
                     src={props.imgUrl}
                     alt="" className="icon"/>
