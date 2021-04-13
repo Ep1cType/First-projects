@@ -5,7 +5,7 @@ const SET_CURRENT_PAGE = 'CURRENT-PAGE'
 const COUNT = 'COUNT'
 const TOGGLE_LOADER = 'TOGGLE-LOADER'
 
-debugger;
+
 let initialState = {
     users: [],
     pageSize: 10,
@@ -79,37 +79,37 @@ const usersReducer = (state = initialState, action) => {
 
 //ActionCreator's
 
-export const followActionCreator = (userID) => {
+export const follow = (userID) => {
     return {
         type: FOLLOW, userID
     };
 };
 
-export const unfollowActionCreator = (userID) => {
+export const unfollow = (userID) => {
     return {
         type: UNFOLLOW, userID
     };
 };
 
-export const setUsersActionCreator = (users) => {
+export const setUsers = (users) => {
     return {
         type: SET_USERS, users
     }
 }
 
-export const currentPageActionCreator = (currentPage) => {
+export const setCurrentPage = (currentPage) => {
     return {
         type: SET_CURRENT_PAGE, currentPage
     }
 }
 
-export const usersCountActionCreator = (usersCount) => {
+export const setTotalUsersCount = (usersCount) => {
     return {
         type: COUNT, usersCount
     }
 }
 
-export const toggleLoaderActionCreator = (isFetching) => {
+export const toggleLoader = (isFetching) => {
     return {
         type: TOGGLE_LOADER, isFetching
     }
