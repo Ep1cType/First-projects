@@ -112,21 +112,21 @@ debugger;
 
 }
 
-export const addMessageActionCreator = () => {
+export const addMessage = () => {
     return {
         type: ADD_MESSAGE,
     };
 
 }
 
-export const updateNewMessageTextActionCreator = (text) => {
+export const updateNewMessage = (text) => {
     return {
         type: UPDATE_NEW_MESSAGE_TEXT,
         newText: text,
     };
 }
 
-export const readActionCreator = (dialogID) => {
+export const readDialog = (dialogID) => {
     return {
         type: READ, dialogID,
     };

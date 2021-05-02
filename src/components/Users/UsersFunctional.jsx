@@ -37,6 +37,8 @@ const UsersFunctional = (props) => {
                         <User key={u.id}
                               id={u.id}
                               name={u.name}
+                              followingInProgress={props.followingInProgress}
+                              toggleFollowingProgress={props.toggleFollowingProgress}
                             // abode={u.abode}
                               subscription={u.followed}
                               imgUrl={u.photos.small}

@@ -1,6 +1,7 @@
 import s from "./Messages.module.css";
 import Message from "./Message/Message.jsx";
 import * as React from "react";
+import {updateNewMessage} from "../../../redux/chatReducer";
 
 const Messages = (props) => {
 
@@ -21,7 +22,7 @@ const Messages = (props) => {
 
     let onMessageChange = (e) => {
         let text = e.target.value;
-        props.updateNewMessageText(text);
+        props.updateNewMessage(text);
     }
 
     return (
@@ -38,8 +39,8 @@ const Messages = (props) => {
                           value={props.newMessageText}/>
                 <div className={s.btn__wrapper}>
                     <div className={s.btn__block}>
-                        <button className={s.btn} onClick={addMessage}>
-                            <img src={require("../../../icons/sendbtn.svg").default} />
+                        <button className={s.btn} onClick={addMessage} disabled={!props.newMessageText}>
+                            <img src={require("../../../icons/sendbtn.svg").default}/>
                         </button>
                     </div>
                 </div>

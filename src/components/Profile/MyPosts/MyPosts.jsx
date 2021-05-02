@@ -33,7 +33,7 @@ const MyPosts = (props) => {
                           value={props.newPostText}/>
                 <div className={s.btn__wrapper}>
                     <div className={s.btn__block}>
-                        <button className={s.btn} onClick={addPost}>Send</button>
+                        {props.newPostText ? <button className={s.btn} onClick={addPost}>Send</button> : null}
                     </div>
                 </div>
             </div>

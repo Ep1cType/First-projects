@@ -1,29 +1,41 @@
 import * as React from "react";
 import {connect} from "react-redux";
-import {follow, setCurrentPage, setTotalUsersCount, setUsers, toggleLoader, unfollow} from "../../redux/usersReducer";
-import axios from "axios";
+import {
+    follow,
+    setCurrentPage,
+    setTotalUsersCount,
+    setUsers,
+    toggleFollowingProgress,
+    toggleLoader,
+    unfollow
+} from "../../redux/usersReducer";
 import UsersFunctional from "./UsersFunctional";
 import Loader from "./Loader";
+import {usersAPI} from "../../api/api";
 
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
         this.props.toggleLoader(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(responce => {
+
+        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
             this.props.toggleLoader(false);
-            this.props.setUsers(responce.data.items);
-            this.props.setTotalUsersCount(responce.data.totalCount);
-        });
+            this.props.setUsers(data.items);
+            this.props.setTotalUsersCount(data.totalCount);
+        })
+
     }
+
+
 
     onPageChanged = (page) => {
         this.props.setCurrentPage(page);
         this.props.toggleLoader(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`).then(responce => {
+        usersAPI.getUsers(page, this.props.pageSize).then(data => {
             this.props.toggleLoader(false);
-            this.props.setUsers(responce.data.items);
-        });
+            this.props.setUsers(data.items);
+        })
     }
 
     render() {
@@ -36,6 +48,8 @@ class UsersContainer extends React.Component {
                                                                       follow={this.props.follow}
                                                                       unfollow={this.props.unfollow}
                                                                       onPageChanged={this.onPageChanged}
+                                                                      followingInProgress={this.props.followingInProgress}
+                                                                      toggleFollowingProgress={this.props.toggleFollowingProgress}
                                                                       pages={this.props.pages}/>}
 
             </>
@@ -51,6 +65,7 @@ let mapStateToProps = (state) => {
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress,
     })
 };
 
@@ -62,5 +77,6 @@ export default connect(mapStateToProps, {
     setCurrentPage,
     setTotalUsersCount,
     toggleLoader,
+    toggleFollowingProgress,
 })
 (UsersContainer);

@@ -12,7 +12,7 @@ const Dialogs = (props) => {
                 message={d.message}
                 time={d.time}
                 read={d.read}
-                readit={props.readit}
+                readit={props.readDialog}
                 imgUrl={d.imgUrl}/>
     );
 
