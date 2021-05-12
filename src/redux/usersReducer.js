@@ -1,3 +1,5 @@
+import {usersAPI} from "../api/api";
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
@@ -132,6 +134,56 @@ export const toggleFollowingProgress = (isFetching, userID) => {
     }
 };
 
+export const getUsers = (currentPage, pageSize) => {
+    return ((dispatch) => {
+            dispatch(toggleLoader(true));
+            usersAPI.getUsers(currentPage, pageSize).then(data => {
+                dispatch(toggleLoader(false));
+                dispatch(setUsers(data.items));
+                dispatch(setTotalUsersCount(data.totalCount));
+            });
+        }
+    )
+};
 
+export const unfollowAccess = (userID) => {
+    return ((dispatch) => {
+            dispatch(toggleFollowingProgress(true, userID));
+            usersAPI.unfollow(userID).then(data => {
+                if (data.resultCode === 0) {
+                    dispatch(unfollow(userID))
+                }
+                dispatch(toggleFollowingProgress(false, userID));
+            });
+        }
+    )
+};
+
+export const followAccess = (userID) => {
+    return ((dispatch) => {
+            dispatch(toggleFollowingProgress(true, userID));
+            usersAPI.follow(userID).then(data => {
+                if (data.resultCode === 0) {
+                    dispatch(follow(userID))
+                }
+                dispatch(toggleFollowingProgress(false, userID));
+            });
+        }
+    )
+};
+
+export const onPageChange = (page, pageSize) => {
+    return ((dispatch) => {
+            dispatch(setCurrentPage(page));
+            dispatch(toggleLoader(true));
+            usersAPI.getUsers(page, pageSize).then(data => {
+                if (data.error === null) {
+                    dispatch(toggleLoader(false));
+                    dispatch(setUsers(data.items))
+                }
+            });
+        }
+    )
+};
 
 export default usersReducer ;

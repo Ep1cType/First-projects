@@ -1,9 +1,8 @@
 import * as React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {setUserProfile, toggleLoader} from "../../redux/profileReducer";
+import {getProfile, setUserProfile, toggleLoader} from "../../redux/profileReducer";
 import {withRouter} from "react-router-dom";
-import {profileAPI} from "../../api/api";
 import Loader from "../Users/Loader";
 
 
@@ -11,15 +10,12 @@ class ProfileContainer extends React.Component {
 
     componentDidMount() {
         let userID = this.props.match.params.userID;
+
         if (!userID) {
             userID = this.props.authUserID;
         }
-        this.props.toggleLoader(true);
-        profileAPI.getProfile(userID).then(data => {
-            this.props.toggleLoader(false);
-            debugger;
-            this.props.setUserProfile(data);
-        })
+
+        this.props.getProfile(userID);
     }
 
     render() {
@@ -42,5 +38,5 @@ let withUrlDataContainerComponent = withRouter(ProfileContainer);
 
 
 export default connect(mapStateToProps, {
-    setUserProfile, toggleLoader
+    setUserProfile, toggleLoader, getProfile
 })(withUrlDataContainerComponent);

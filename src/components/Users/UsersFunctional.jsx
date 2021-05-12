@@ -1,6 +1,7 @@
 import s from "./Users.module.css";
 import User from "./User/User";
 import * as React from "react";
+import {followAccess, unfollowAccess} from "../../redux/usersReducer";
 
 
 const UsersFunctional = (props) => {
@@ -44,7 +45,9 @@ const UsersFunctional = (props) => {
                               imgUrl={u.photos.small}
                             // study={u.study}
                               follow={props.follow}
+                              followAccess={props.followAccess}
                               unfollow={props.unfollow}
+                              unfollowAccess={props.unfollowAccess}
                         />
                     )}
                 </ul>

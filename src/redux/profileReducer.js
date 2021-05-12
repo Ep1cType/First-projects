@@ -1,3 +1,6 @@
+import {profileAPI, usersAPI} from "../api/api";
+import {toggleFollowingProgress, unfollow} from "./usersReducer";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILES = 'SET-USER-PROFILES';
@@ -110,5 +113,17 @@ export const toggleLoader = (isFetching) => {
         type: TOGGLE_LOADER, isFetching
     }
 };
+
+export const getProfile = (userID) => {
+    return ((dispatch) => {
+            dispatch(toggleLoader(true));
+            profileAPI.getProfile(userID).then(data => {
+                dispatch(toggleLoader(false));
+                dispatch(setUserProfile(data));
+            });
+        }
+    )
+};
+
 
 export default profileReducer;

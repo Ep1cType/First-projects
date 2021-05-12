@@ -1,3 +1,6 @@
+import {authAPI, profileAPI, usersAPI} from "../api/api";
+import {setCurrentPage, setUsers, toggleLoader} from "./usersReducer";
+
 const SET_USER_DATA = 'SET-USER-DATA';
 const SET_USER_INFO = 'SET-USER-INFO';
 
@@ -43,6 +46,22 @@ export const userAvatar = (avatar) => {
     return {
         type: SET_USER_INFO, avatar
     };
+};
+
+export const getAuth = (id) => {
+    return ((dispatch) => {
+            authAPI.getAuth().then(data => {
+                if (data.resultCode === 0) {
+                    let {email, id, login} = data.data;
+                    dispatch(setAuthUserData(email, id, login));
+                    profileAPI.getProfile(id).then(data => {
+                        if (data.photos.small !== null)
+                        dispatch(userAvatar(data.photos.small))
+                    })
+                }
+            });
+        }
+    )
 };
 
 

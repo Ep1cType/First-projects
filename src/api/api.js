@@ -16,7 +16,7 @@ export const authAPI = {
             .then(response => {
                 return response.data
             })
-    }
+    },
 };
 
 
@@ -38,7 +38,7 @@ export const usersAPI = {
             .then(response => {
                 return response.data
             })
-    }
+    },
 };
 
 

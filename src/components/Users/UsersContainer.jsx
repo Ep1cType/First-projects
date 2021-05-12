@@ -2,40 +2,33 @@ import * as React from "react";
 import {connect} from "react-redux";
 import {
     follow,
+    followAccess,
+    getUsers,
+    onPageChange,
     setCurrentPage,
     setTotalUsersCount,
     setUsers,
     toggleFollowingProgress,
     toggleLoader,
-    unfollow
+    unfollow,
+    unfollowAccess
 } from "../../redux/usersReducer";
 import UsersFunctional from "./UsersFunctional";
 import Loader from "./Loader";
-import {usersAPI} from "../../api/api";
 
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.toggleLoader(true);
-
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-            this.props.toggleLoader(false);
-            this.props.setUsers(data.items);
-            this.props.setTotalUsersCount(data.totalCount);
-        })
-
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
 
 
 
     onPageChanged = (page) => {
-        this.props.setCurrentPage(page);
-        this.props.toggleLoader(true);
-        usersAPI.getUsers(page, this.props.pageSize).then(data => {
-            this.props.toggleLoader(false);
-            this.props.setUsers(data.items);
-        })
+        debugger;
+        this.props.onPageChange(page, this.props.pageSize)
+
     }
 
     render() {
@@ -46,7 +39,9 @@ class UsersContainer extends React.Component {
                                                                       currentPage={this.props.currentPage}
                                                                       users={this.props.users}
                                                                       follow={this.props.follow}
+                                                                      followAccess={this.props.followAccess}
                                                                       unfollow={this.props.unfollow}
+                                                                      unfollowAccess={this.props.unfollowAccess}
                                                                       onPageChanged={this.onPageChanged}
                                                                       followingInProgress={this.props.followingInProgress}
                                                                       toggleFollowingProgress={this.props.toggleFollowingProgress}
@@ -78,5 +73,9 @@ export default connect(mapStateToProps, {
     setTotalUsersCount,
     toggleLoader,
     toggleFollowingProgress,
+    getUsers,
+    onPageChange,
+    followAccess,
+    unfollowAccess
 })
 (UsersContainer);
