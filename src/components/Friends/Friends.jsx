@@ -1,5 +1,6 @@
 import s from './Friends.module.css';
 import Friend from "./Friend/Friend";
+import {Redirect} from "react-router-dom";
 
 
 const Friends = (props) => {
@@ -9,6 +10,10 @@ const Friends = (props) => {
                 name={f.name}
                 imgUrl={f.imgUrl}/>
     );
+
+    if (!props.isAuth) {
+        return <Redirect to={`/login`}/>
+    }
 
 
     return (

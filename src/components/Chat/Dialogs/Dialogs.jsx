@@ -17,6 +17,9 @@ const Dialogs = (props) => {
     );
 
 
+
+
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogs__wrapper}>
@@ -27,5 +30,7 @@ const Dialogs = (props) => {
         </div>
     );
 }
+
+
 
 export default Dialogs;

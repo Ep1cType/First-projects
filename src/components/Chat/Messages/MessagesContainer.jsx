@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import {addMessage, updateNewMessage} from "../../../redux/chatReducer";
 import Messages from "./Messages";
 import {connect} from "react-redux";

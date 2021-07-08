@@ -1,3 +1,4 @@
+
 let initialState = {
     friends: [
         {
@@ -39,8 +40,11 @@ let initialState = {
 };
 
 const friendsReducer = (state = initialState, action) => {
+    switch (action.type) {
 
-    return state;
+        default:
+            return state;
+    }
 }
 
 export default friendsReducer;

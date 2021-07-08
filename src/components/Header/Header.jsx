@@ -17,11 +17,14 @@ const Header = (props) => {
                     {props.isAuth ? <div className={s.login}>
                             <span>{props.login}</span>
                             <img className={s.avatar} src={props.userImg} alt=""/>
+                            <button onClick={() => props.logout()}>logout</button>
                         </div>
+
                         : <NavLink to={'/login'}>
                             log in
                         </NavLink>}
                 </div>
+
             </div>
         </header>
     )

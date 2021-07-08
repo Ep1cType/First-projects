@@ -1,9 +1,9 @@
-import {profileAPI, usersAPI} from "../api/api";
-import {toggleFollowingProgress, unfollow} from "./usersReducer";
+import {profileAPI} from "../api/api";
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILES = 'SET-USER-PROFILES';
+const SET_USER_STATUS = 'SET-USER-STATUS';
 const TOGGLE_LOADER = 'TOGGLE-LOADER'
 
 // В данную функцию приходит state. Так как функция отвечает за profile, значит в state
@@ -42,6 +42,7 @@ let initialState = {
     userProfile: null,
     newPostText: '',
     isFetching: false,
+    userStatus: '',
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -75,6 +76,13 @@ const profileReducer = (state = initialState, action) => {
             }
         }
 
+        case SET_USER_STATUS: {
+            return {
+                ...state,
+                userStatus: action.userStatus
+            }
+        }
+
         case TOGGLE_LOADER: {
             return {
                 ...state,
@@ -104,7 +112,12 @@ export const updateNewPostTextActionCreator = (text) => {
 export const setUserProfile = (userProfile) => {
     return {
         type: SET_USER_PROFILES, userProfile
+    }
+};
 
+export const setUserStatus = (userStatus) => {
+    return {
+        type: SET_USER_STATUS, userStatus
     }
 };
 
@@ -121,6 +134,29 @@ export const getProfile = (userID) => {
                 dispatch(toggleLoader(false));
                 dispatch(setUserProfile(data));
             });
+        }
+    )
+};
+
+export const getUserStatus = (userID) => {
+    return ((dispatch) => {
+            dispatch(toggleLoader(true));
+            profileAPI.getUserStatus(userID).then(data => {
+                dispatch(toggleLoader(false));
+                dispatch(setUserStatus(data));
+            });
+        }
+    )
+};
+
+export const updateUserStatus = (userStatus) => {
+    return ((dispatch) => {
+            profileAPI.updateUserStatus(userStatus)
+                .then(response => {
+                    if (response.data.resultCode === 0) {
+                        dispatch(setUserStatus(userStatus))
+                    }
+                })
         }
     )
 };

@@ -5,7 +5,6 @@ import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import Loader from "../Users/Loader";
 
 
-
 const Profile = (props) => {
 
     if (!props.profile ) {
@@ -26,7 +25,7 @@ const Profile = (props) => {
                 </div>
             </div>
             <div className={s.right}>
-                <ProfileInfo profile={props.profile}/>
+                <ProfileInfo profile={props.profile} userStatus={props.userStatus} updateUserStatus={props.updateUserStatus}/>
                 <MyPostsContainer/>
             </div>
         </div>

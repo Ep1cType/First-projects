@@ -33,7 +33,7 @@ class UsersContainer extends React.Component {
 
     render() {
         return (
-            <>
+            <React.Fragment>
                 {this.props.isFetching ? <Loader/> : <UsersFunctional totalUsersCount={this.props.totalUsersCount}
                                                                       pageSize={this.props.pageSize}
                                                                       currentPage={this.props.currentPage}
@@ -46,8 +46,7 @@ class UsersContainer extends React.Component {
                                                                       followingInProgress={this.props.followingInProgress}
                                                                       toggleFollowingProgress={this.props.toggleFollowingProgress}
                                                                       pages={this.props.pages}/>}
-
-            </>
+            </React.Fragment>
         );
     }
 }

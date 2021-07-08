@@ -1,7 +1,6 @@
 import s from "./Users.module.css";
 import User from "./User/User";
 import * as React from "react";
-import {followAccess, unfollowAccess} from "../../redux/usersReducer";
 
 
 const UsersFunctional = (props) => {

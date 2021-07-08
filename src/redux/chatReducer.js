@@ -93,7 +93,7 @@ export const chatReducer = (state = initialState, action) => {
                 newMessageText: action.newText,
             };
         }
-debugger;
+
         case READ: {
             return {
                 ...state,
